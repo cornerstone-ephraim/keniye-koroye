@@ -5,10 +5,10 @@ type WorkDetailMetaProps = {
 
 export function WorkDetailMeta({ meta, pills }: WorkDetailMetaProps) {
   return (
-    <div className="border border-rule">
-      <div className="grid grid-cols-2">
+    <div className="border-t border-rule pt-6">
+      <div className="flex flex-wrap gap-x-10 gap-y-5">
         {meta.map(([label, value]) => (
-          <div key={label} className="border-r border-b border-rule p-4">
+          <div key={label}>
             <div className="font-mono text-[0.56rem] tracking-[0.18em] text-muted uppercase">
               {label}
             </div>
@@ -19,7 +19,7 @@ export function WorkDetailMeta({ meta, pills }: WorkDetailMetaProps) {
         ))}
       </div>
 
-      <div className="p-4">
+      <div className="mt-6">
         <div className="font-mono text-[0.56rem] tracking-[0.18em] text-muted uppercase">
           Focus
         </div>

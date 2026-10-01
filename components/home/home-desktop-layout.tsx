@@ -10,24 +10,8 @@ import { HomeDisciplines } from "./home-disciplines";
 
 export function HomeDesktopLayout() {
   return (
-    <div
-      className="hidden flex-1 border-b border-rule md:grid"
-      style={{ gridTemplateColumns: "1.05fr 1px 1.25fr 1px 1.05fr" }}
-    >
-      <div className="p-10">
-        <HomeStats />
-      </div>
-
-      <div className="bg-rule" />
-
-      <div className="p-10">
-        <HomeHeroImage priority compact />
-        <HomeQuote />
-      </div>
-
-      <div className="bg-rule" />
-
-      <div className="p-10">
+    <div className="mx-auto hidden w-full max-w-400 flex-1 grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)_minmax(0,0.8fr)] items-start gap-10 border-b border-rule px-12 py-12 lg:grid xl:gap-14 xl:py-14">
+      <div className="min-w-0">
         <HomeBio />
         <motion.div
           initial={{ opacity: 0, y: 12 }}
@@ -40,6 +24,15 @@ export function HomeDesktopLayout() {
         <div className="mt-10 border-t border-rule pt-8">
           <HomeDisciplines />
         </div>
+      </div>
+
+      <div className="mx-auto w-full max-w-81 min-w-0">
+        <HomeHeroImage priority compact />
+        <HomeQuote />
+      </div>
+
+      <div className="min-w-0 border-l border-rule pl-8 xl:pl-10">
+        <HomeStats />
       </div>
     </div>
   );

@@ -60,12 +60,12 @@
 }
 
 :root {
-  --ink: oklch(15.82% 0.0041 106.86);
-  --paper: oklch(95.68% 0.0119 79.78);
-  --cream: oklch(92.78% 0.0248 91.62);
+  --ink: oklch(16% 0 0);
+  --paper: oklch(98% 0 0);
+  --cream: oklch(94% 0 0);
   --accent: oklch(55.71% 0.1821 29.59);
-  --muted: oklch(56.08% 0.0195 84.59);
-  --rule: oklch(80.63% 0.0305 87.56);
+  --muted: oklch(48% 0 0);
+  --rule: oklch(85% 0 0);
 
   --background: var(--paper);
   --foreground: var(--ink);
@@ -214,7 +214,7 @@
     linear-gradient(
       90deg,
       transparent 0%,
-      rgba(200, 191, 170, 0.55) 48%,
+      color-mix(in oklch, var(--rule) 55%, transparent) 48%,
       transparent 100%
     ),
     var(--cream);

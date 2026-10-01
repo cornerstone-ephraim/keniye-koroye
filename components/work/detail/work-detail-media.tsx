@@ -14,21 +14,20 @@ type FeatureImageProps = {
 export function WorkDetailFeatureImage({
   image,
   title,
-  bg,
   priority = false,
 }: FeatureImageProps) {
+  if (!image) return null;
   return (
-    <section className="border-b border-rule px-6 py-8 md:px-12 md:py-12">
+    <section className="mx-auto max-w-360 px-6 md:px-12">
       <motion.div
         initial={{ opacity: 0, y: 18 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={workDetailViewport}
         transition={{ duration: 0.65, ease: workDetailEase }}
-        className="relative flex min-h-88 items-center justify-center overflow-hidden p-6 md:min-h-144 md:p-10"
-        style={{ background: bg }}
+        className="relative flex items-center justify-center bg-cream/40 p-4 md:p-6"
       >
         {image ? (
-          <div className="relative h-[min(68vh,42rem)] w-full max-w-312">
+          <div className="relative md:h-[min(65svh,40rem)] min-h-64 w-full max-w-312">
             <Image
               src={image}
               alt={title}
@@ -63,7 +62,7 @@ export function WorkDetailGalleryImage({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={workDetailViewport}
       transition={{ duration: 0.55, ease: workDetailEase }}
-      className={`relative border-r border-b border-rule bg-cream ${
+      className={`relative bg-cream/40 ${
         expanded ? "min-h-[80vh] md:col-span-2" : "min-h-72 md:min-h-104"
       }`}
     >

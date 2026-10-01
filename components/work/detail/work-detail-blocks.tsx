@@ -25,20 +25,22 @@ export function WorkDetailBlock({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={workDetailViewport}
       transition={{ duration: 0.5, delay, ease: workDetailEase }}
-      className="border-t border-rule pt-5"
+      className="grid gap-4 border-t border-rule pt-6 md:grid-cols-[10rem_minmax(0,1fr)] md:gap-8"
     >
       <div className="mb-4 font-mono text-[0.62rem] tracking-[0.2em] text-accent uppercase">
         {label}
       </div>
 
-      {title ? (
-        <h2 className="mb-4 text-[1.05rem] leading-snug font-bold md:text-[1.2rem]">
-          {title}
-        </h2>
-      ) : null}
-      <p className="font-fraunces text-[0.9rem] leading-[1.85] text-[#3a3730]">
-        {content}
-      </p>
+      <div>
+        {title ? (
+          <h2 className="mb-4 text-[1.05rem] leading-snug font-bold md:text-[1.2rem]">
+            {title}
+          </h2>
+        ) : null}
+        <p className="max-w-2xl font-sans text-base leading-8 text-ink/80">
+          {content}
+        </p>
+      </div>
     </motion.div>
   );
 }

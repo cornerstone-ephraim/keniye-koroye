@@ -21,8 +21,7 @@ export function HomeMasthead() {
             delay: 0.1,
             ease: [0.16, 1, 0.3, 1] as const,
           }}
-          className="font-playfair leading-none font-black -tracking-[0.02em] uppercase"
-          style={{ fontSize: "clamp(3.5rem, 18vw, 6rem)" }}
+          className="font-playfair text-5xl leading-none font-black tracking-normal uppercase min-[375px]:text-6xl sm:text-7xl"
         >
           KEN<em className="text-accent italic">I</em>YĒ
         </motion.h1>
@@ -45,7 +44,7 @@ export function HomeMasthead() {
       </div>
 
       {/* Desktop */}
-      <div className="hidden grid-cols-3 items-end gap-8 md:grid">
+      <div className="hidden grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-end gap-6 md:grid">
         <div className="text-[0.62rem] leading-loose tracking-[0.15em] text-muted uppercase">
           Product Manager
           <br />
@@ -63,8 +62,7 @@ export function HomeMasthead() {
               delay: 0.1,
               ease: [0.16, 1, 0.3, 1] as const,
             }}
-            className="font-playfair leading-none font-black -tracking-[0.02em] uppercase"
-            style={{ fontSize: "clamp(3.5rem, 9vw, 7.5rem)" }}
+            className="font-playfair text-7xl leading-none font-black tracking-normal uppercase lg:text-8xl xl:text-9xl"
           >
             KEN<em className="text-accent italic">I</em>YĒ
           </motion.h1>

@@ -1,0 +1,103 @@
+.strip {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  height: 104px;
+  padding-inline: 24px;
+  background: transparent;
+}
+
+.window {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 5%,
+    black 95%,
+    transparent
+  );
+}
+
+.track {
+  display: flex;
+  width: max-content;
+  animation: brand-scroll 35s linear infinite;
+}
+
+.track[data-paused="true"] {
+  animation-play-state: paused;
+}
+
+.group {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  gap: 48px;
+  padding-right: 48px; /* keep this EQUAL to gap, not smaller */
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 180px;
+  height: 48px;
+  flex-shrink: 0;
+}
+
+.image {
+  width: auto;
+  max-width: 140px;
+  height: auto;
+  max-height: 40px;
+  object-fit: contain;
+  filter: grayscale(1) brightness(0);
+  opacity: 0.55;
+}
+
+@keyframes brand-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .window:hover .track {
+    animation-play-state: paused;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .track {
+    width: 100%;
+    animation: none;
+  }
+  .group {
+    width: 100%;
+    gap: 16px;
+    padding-right: 0;
+    justify-content: space-around;
+  }
+  .group + .group,
+  .control {
+    display: none;
+  }
+  .logo {
+    width: auto;
+    min-width: 0;
+    flex: 1;
+  }
+  .image {
+    max-width: 100%;
+    max-height: 32px;
+  }
+  .window {
+    mask-image: none;
+  }
+}

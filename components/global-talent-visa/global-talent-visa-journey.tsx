@@ -1,7 +1,6 @@
 import FadeIn from "@/components/ui/FadeIn";
 import { visaBenefits } from "@/lib/gtv-details";
 import { GTVSectionLabel } from "./gtv-section-label";
-import { GTVJourneyImage } from "./gtv-journey-image";
 
 export const GlobalTalentVisaJourney = () => {
   return (
@@ -23,9 +22,13 @@ export const GlobalTalentVisaJourney = () => {
                   One of the biggest misconceptions about the Global Talent Visa
                   is that the application begins when you decide to apply.
                 </p>
-                <p>In reality, it begins years earlier.</p>
+                <p>
+                  In reality, it begins years earlier: projects you build,
+                  people you work with, communities you contribute to, and
+                  reputation you earn.
+                </p>
 
-                <div className="grid gap-2 py-2 sm:grid-cols-2">
+                {/* <div className="grid gap-2 py-2 sm:grid-cols-2">
                   {[
                     "Projects you build",
                     "People you work with",
@@ -34,21 +37,19 @@ export const GlobalTalentVisaJourney = () => {
                   ].map((line) => (
                     <span
                       key={line}
-                      className="border-l border-rule py-1.5 pl-4 font-mono text-[0.6rem] tracking-[0.12em] text-ink uppercase"
+                      className="border-l border-rule py-1.5 pl-4 font-mono text-[0.6rem] tracking-[0.12em] text-ink"
                     >
                       {line}
                     </span>
                   ))}
-                </div>
-
-                <p>
-                  By the time I submitted my application, the evidence already
-                  existed. The challenge was simply presenting the story
-                  clearly.
-                </p>
+                </div> */}
               </div>
+            </div>
+          </FadeIn>
 
-              <div className="mt-8 border-t border-rule pt-6">
+          <FadeIn delay={0.2} className="md:h-full">
+            <div>
+              <div className="mb-8">
                 <span className="font-mono text-[0.6rem] tracking-[0.18em] text-accent uppercase">
                   Benefits Of The Visa
                 </span>
@@ -62,12 +63,10 @@ export const GlobalTalentVisaJourney = () => {
                   ))}
                 </div>
               </div>
-            </div>
-          </FadeIn>
-
-          <FadeIn delay={0.2} className="md:h-full">
-            <div className="md:h-full md:max-h-[42rem]">
-              <GTVJourneyImage />
+              <p>
+                By the time I submitted my application, the evidence already
+                existed. The challenge was simply presenting the story clearly.
+              </p>
             </div>
           </FadeIn>
         </div>
