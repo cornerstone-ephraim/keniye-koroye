@@ -66,7 +66,7 @@ export function WorkDetailPage({ project }: WorkDetailPageProps) {
 
   return (
     <div className="min-h-screen bg-paper pt-14.25">
-      <section className="mx-auto max-w-360 px-6 py-10 md:px-12 md:py-14">
+      <section className="px-6 py-10 md:px-12 md:py-14">
         <motion.div
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
@@ -118,7 +118,7 @@ export function WorkDetailPage({ project }: WorkDetailPageProps) {
         priority
       />
 
-      <section className="mx-auto max-w-300 px-6 py-10 md:px-12 md:py-16">
+      <section className="px-6 py-10 md:px-12 md:py-16">
         <div>
           {details?.headline ? (
             <motion.p
@@ -172,7 +172,7 @@ export function WorkDetailPage({ project }: WorkDetailPageProps) {
       </section>
 
       {galleryImages.length ? (
-        <section className="mx-auto max-w-360">
+        <section>
           <WorkDetailSectionHeader label="Gallery" />
           <div className="grid grid-cols-1 gap-5 px-6 md:grid-cols-2 md:px-12">
             {galleryImages.map((image) => (
@@ -188,7 +188,7 @@ export function WorkDetailPage({ project }: WorkDetailPageProps) {
       ) : null}
 
       {detailGroups.length || project.outcomes?.length ? (
-        <section className="mx-auto max-w-300 px-6 py-10 md:px-12 md:py-16">
+        <section className="px-6 py-10 md:px-12 md:py-16">
           <div className="grid gap-10 lg:grid-cols-[1fr_1fr]">
             {detailGroups.map((group, index) => (
               <WorkDetailListBlock
@@ -214,7 +214,7 @@ export function WorkDetailPage({ project }: WorkDetailPageProps) {
       {nextProject?.slug && nextProject.slug !== project.slug && (
         <Link
           href={`/work/${nextProject.slug}`}
-          className="group mx-auto flex max-w-360 items-center justify-between gap-6 px-6 py-12 focus-visible:outline-2 focus-visible:outline-accent md:px-12"
+          className="group flex items-center justify-between gap-6 px-6 py-12 focus-visible:outline-2 focus-visible:outline-accent md:px-12"
         >
           <div>
             <p className="mb-3 font-mono text-xs text-muted">Next project</p>

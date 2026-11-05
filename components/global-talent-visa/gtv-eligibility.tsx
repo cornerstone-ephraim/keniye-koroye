@@ -47,12 +47,12 @@ export function GTVEligibility() {
       aria-labelledby="readiness-title"
       className="scroll-mt-24 border-y border-rule bg-cream/40"
     >
-      <div className="mx-auto grid max-w-360 gap-10 px-6 py-12 md:px-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20 lg:py-16">
+      <div className="grid gap-10 px-6 py-16 md:px-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20 lg:py-24">
         <div>
           <p className="mb-5 font-mono text-xs text-accent">Readiness check</p>
           <h2
             id="readiness-title"
-            className="max-w-sm text-3xl leading-tight font-bold"
+            className="max-w-sm font-playfair text-3xl leading-tight tracking-tight md:text-4xl"
           >
             A quick pause before the paperwork.
           </h2>
@@ -62,7 +62,7 @@ export function GTVEligibility() {
             show the signals that matter.
           </p>
         </div>
-        <div className="min-w-0">
+        <div className="min-w-0 border border-rule bg-paper p-5 sm:p-8">
           <div className="mb-3 flex justify-between gap-4 font-mono text-xs text-muted">
             <span>
               {complete

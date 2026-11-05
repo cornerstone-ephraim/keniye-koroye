@@ -1,175 +1,133 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "motion/react";
-import { BsArrowRight } from "react-icons/bs";
-import FadeIn from "@/components/ui/FadeIn";
-import PageHero from "@/components/ui/PageHero";
+import { ArrowDown, ArrowUpRight } from "lucide-react";
+
+import { buttonVariants } from "@/components/ui/button";
 import { colabContent } from "@/lib/story-pages";
+import { cn } from "@/lib/utils";
 
 export default function ColabPage() {
   return (
-    <div className="min-h-screen bg-paper pt-14.25">
-      <PageHero
-        as="h1"
-        eyebrow={colabContent.eyebrow}
-        title={
-          <>
-            {colabContent.title}
-            <br />
-            <em className="text-accent">Studies</em>
-          </>
-        }
-      >
-        <p className="max-w-xl font-fraunces text-[0.95rem] leading-[1.8] text-muted italic md:text-[1.05rem]">
-          {colabContent.hero}
-        </p>
-      </PageHero>
-
-      <div
-        className="flex flex-col md:grid"
-        style={{ gridTemplateColumns: "1.2fr 1px 1fr" }}
-      >
-        <main className="px-6 py-10 md:px-12">
-          <FadeIn delay={0.12}>
-            <p
-              className="mb-8 font-fraunces leading-[1.75]"
-              style={{ fontSize: "clamp(1rem, 3vw, 1.2rem)", maxWidth: "52ch" }}
-            >
-              {colabContent.intro}
+    <div className="bg-paper pt-14.25 text-ink">
+      <header className="bg-ink text-paper">
+        <div className="grid px-6 md:px-12 lg:grid-cols-[1fr_1.1fr] lg:gap-12">
+          <div className="flex flex-col justify-center py-12 md:py-16">
+            <h1 className="font-playfair text-6xl leading-none tracking-tight sm:text-7xl xl:text-8xl">
+              Colab.
+            </h1>
+            <p className="mt-7 max-w-sm text-xl leading-relaxed">
+              An ongoing practice in making things with artists and designers
+              across art, fashion, and technology.
             </p>
-          </FadeIn>
-
-          <FadeIn delay={0.2}>
-            <div className="my-8 border-t border-rule pt-8">
-              <blockquote className="font-playfair text-[1rem] leading-[1.8] text-muted italic">
-                "Ideas are not confined by discipline. They expand through
-                collaboration."
-              </blockquote>
-            </div>
-          </FadeIn>
-
-          <SectionLabel>Manifesto</SectionLabel>
-          <div className="mt-5 space-y-4 text-[0.88rem] leading-[1.95] text-muted">
-            {colabContent.manifesto.map((paragraph) => (
-              <FadeIn key={paragraph} delay={0.08}>
-                <p>{paragraph}</p>
-              </FadeIn>
-            ))}
+            <a
+              href="#creative-partnership"
+              className="mt-8 inline-flex min-h-11 w-fit items-center gap-3 border-b border-paper/50 text-sm focus-visible:outline-2 focus-visible:outline-offset-4"
+            >
+              Meet the creative partner
+              <ArrowDown aria-hidden="true" className="size-4" />
+            </a>
           </div>
+          <Image
+            src="/images/keniye-colab.jpg"
+            alt="Three people in an art studio surrounded by canvases"
+            width={828}
+            height={828}
+            priority
+            sizes="(min-width: 1280px) 670px, (min-width: 1024px) 53vw, 100vw"
+            className="aspect-square h-full w-full object-cover"
+          />
+        </div>
+      </header>
 
-          <div className="mt-10 border-t border-rule pt-8">
-            <SectionLabel>Featured Collaboration</SectionLabel>
-            <div className="mt-6">
-              <h2 className="text-[1.05rem] leading-snug font-bold md:text-[1.15rem]">
-                {colabContent.featured.name}
-              </h2>
-              <p className="mt-2 font-mono text-[0.62rem] tracking-[0.18em] text-muted uppercase">
-                {colabContent.featured.role}
-              </p>
-              <div className="mt-5 space-y-4 text-[0.85rem] leading-[1.9] text-muted">
-                {colabContent.featured.body.map((paragraph) => (
-                  <p key={paragraph}>{paragraph}</p>
-                ))}
-              </div>
-            </div>
-          </div>
+      <section
+        id="creative-partnership"
+        aria-labelledby="partner-title"
+        className="grid scroll-mt-20 gap-8 px-6 py-16 md:px-12 lg:grid-cols-2 lg:gap-16 lg:py-24"
+      >
+        <div>
+          <p className="mb-5 font-mono text-sm text-muted">
+            The first partnership
+          </p>
+          <h2
+            id="partner-title"
+            className="font-playfair text-5xl leading-tight tracking-tight sm:text-6xl"
+          >
+            {colabContent.featured.name}
+          </h2>
+        </div>
+        <div className="max-w-xl space-y-5 text-lg leading-relaxed text-muted">
+          <p>
+            Colab began with a friendship. Ken Nwadiogbu, a longtime friend and
+            creative partner of Keniye, helped shape the practice from the
+            start.
+          </p>
+          <p>
+            Ken brings hyperrealist art and visual storytelling to the
+            partnership. Keniye brings a practice that spans design and
+            technology. Their shared ground is the space between those
+            disciplines.
+          </p>
+        </div>
+      </section>
 
-          <div className="mt-10 border-t border-rule pt-8">
-            <SectionLabel>Areas Of Collaboration</SectionLabel>
-            <div className="mt-6 border-t border-rule">
-              {colabContent.areas.map((area, index) => (
-                <motion.article
-                  key={area.title}
-                  className="border-b border-rule py-5"
-                  initial={{ opacity: 0, y: 14 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.25 }}
-                  transition={{ duration: 0.45, delay: index * 0.04 }}
+      <section
+        aria-labelledby="work-title"
+        className="border-y border-rule bg-cream"
+      >
+        <div className="px-6 py-16 md:px-12 lg:py-20">
+          <h2
+            id="work-title"
+            className="font-playfair text-4xl tracking-tight sm:text-5xl"
+          >
+            Explore Ken’s work
+          </h2>
+          <ul className="mt-8 divide-y divide-rule border-y border-rule">
+            {colabContent.links.map((item) => (
+              <li key={item.href}>
+                <a
+                  href={item.href}
+                  className="group grid grid-cols-[1fr_auto] items-center gap-x-5 gap-y-2 py-5 focus-visible:outline-2 focus-visible:outline-offset-4 md:grid-cols-[minmax(10rem,1fr)_3fr_auto]"
                 >
-                  <h3 className="text-[0.95rem] leading-snug font-bold md:text-[1rem]">
-                    {area.title}
-                  </h3>
-                  <p className="mt-2 max-w-2xl text-[0.85rem] leading-[1.85] text-muted">
-                    {area.body}
-                  </p>
-                </motion.article>
-              ))}
-            </div>
-          </div>
-
-          <FadeIn delay={0.1}>
-            <div className="mt-10 border-t border-rule pt-8">
-              <SectionLabel>Closing Note</SectionLabel>
-              <p className="mt-6 max-w-3xl font-playfair text-[1rem] leading-[1.8] text-muted italic md:text-[1.15rem]">
-                {colabContent.closing}
-              </p>
-            </div>
-          </FadeIn>
-        </main>
-
-        <div className="hidden bg-rule md:block" />
-
-        <aside className="bg-cream px-6 py-10 md:px-12">
-          <FadeIn delay={0.15}>
-            <div className="sticky top-20 space-y-8">
-              <figure className="border-t border-rule pt-5">
-                <div className="relative aspect-4/5 overflow-hidden bg-paper">
-                  <Image
-                    src="/images/keniye-colab.jpg"
-                    alt="Keniye Koroye"
-                    fill
-                    priority
-                    sizes="(min-width: 768px) 36vw, 100vw"
-                    className="object-cover object-top"
+                  <span className="col-start-1 row-start-2 font-mono text-xs text-muted md:row-start-1">
+                    {item.source}
+                  </span>
+                  <span className="col-start-1 row-start-1 text-lg leading-snug group-hover:underline md:col-start-2">
+                    {item.title}
+                  </span>
+                  <ArrowUpRight
+                    aria-hidden="true"
+                    className="col-start-2 row-span-2 row-start-1 size-5 text-accent md:col-start-3 md:row-span-1"
                   />
-                </div>
-                <figcaption className="mt-3 font-mono text-[0.58rem] tracking-[0.16em] text-muted uppercase">
-                  Creative Partnerships
-                </figcaption>
-              </figure>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
 
-              <div className="border-t border-rule pt-6">
-                <SectionLabel>Related Work</SectionLabel>
-                <div className="mt-5 border-t border-rule">
-                  {colabContent.links.map((item) => (
-                    <Link
-                      key={item.href}
-                      href={item.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group flex items-start justify-between gap-5 border-b border-rule py-5 no-underline"
-                    >
-                      <span>
-                        <span className="block font-mono text-[0.55rem] tracking-[0.16em] text-accent uppercase">
-                          {item.source}
-                        </span>
-                        <span className="mt-2 block text-[0.86rem] leading-snug text-ink transition-colors group-hover:text-accent">
-                          {item.title}
-                        </span>
-                      </span>
-                      <span className="mt-1 text-accent">
-                        <BsArrowRight />
-                      </span>
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </FadeIn>
-        </aside>
-      </div>
+      <section
+        aria-labelledby="contact-title"
+        className="flex flex-col items-start justify-between gap-8 px-6 py-16 md:flex-row md:items-end md:px-12 lg:py-20"
+      >
+        <div>
+          <h2
+            id="contact-title"
+            className="font-playfair text-4xl tracking-tight sm:text-5xl"
+          >
+            What could we make together?
+          </h2>
+          <p className="mt-4 max-w-lg text-lg leading-relaxed text-muted">
+            If you have a project in mind, tell Keniye what you’re working on.
+          </p>
+        </div>
+        <Link
+          href="/contact"
+          className={cn(buttonVariants({ size: "lg" }), "no-underline")}
+        >
+          Get in touch
+          <ArrowUpRight aria-hidden="true" data-icon="inline-end" />
+        </Link>
+      </section>
     </div>
-  );
-}
-
-function SectionLabel({ children }: { children: React.ReactNode }) {
-  return (
-    <FadeIn delay={0.08}>
-      <h2 className="font-mono text-[0.62rem] tracking-[0.2em] text-accent uppercase">
-        {children}
-      </h2>
-    </FadeIn>
   );
 }

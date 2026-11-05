@@ -46,7 +46,7 @@ function ShopHero({ product }: { product: ShopProduct }) {
         <div className="max-w-2xl">
           <p className="mb-4 font-mono text-xs text-paper/80">{product.name}</p>
           <h1 className="font-playfair text-4xl leading-tight font-bold tracking-normal sm:text-5xl lg:text-6xl">
-            Objects by Keniyē.
+            Collectibles by Keniyē.
           </h1>
           <p className="mt-4 max-w-lg font-fraunces text-base leading-relaxed text-paper/90 md:text-lg">
             Sculptural objects shaped through material culture and local

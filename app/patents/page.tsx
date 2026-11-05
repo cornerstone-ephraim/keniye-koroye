@@ -5,7 +5,7 @@ import { Metadata } from "next";
 export const metadata: Metadata = createPageMetadata({
   title: "Patents",
   description:
-    "Patent-pending innovation by Keniye Koroye exploring wearable intelligence, AI, robotics, and human-machine interaction.",
+    "Explore TekGlove by Keniye Koroye: a modular wearable platform for movement, grip and gesture, with product concepts and registered-design documentation.",
   path: "/patents",
 });
 

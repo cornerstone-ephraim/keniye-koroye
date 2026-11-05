@@ -50,9 +50,7 @@ export function WorkCard({ project }: WorkCardProps) {
               src={project.thumbnail}
               alt={project.title}
               fill
-              className={`transition-all ease-linear group-hover:scale-103 ${
-                shouldContainImage ? "object-contain p-5" : "object-cover"
-              }`}
+              className={`object-cover transition-all ease-linear group-hover:scale-103`}
             />
           ) : (
             <div className="absolute inset-0 flex items-center justify-center font-playfair text-[5rem] font-black text-white/5 select-none">

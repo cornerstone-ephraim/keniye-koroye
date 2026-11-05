@@ -18,7 +18,7 @@ export function WorkDetailFeatureImage({
 }: FeatureImageProps) {
   if (!image) return null;
   return (
-    <section className="mx-auto max-w-360 px-6 md:px-12">
+    <section className="px-6 md:px-12">
       <motion.div
         initial={{ opacity: 0, y: 18 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -27,7 +27,7 @@ export function WorkDetailFeatureImage({
         className="relative flex items-center justify-center bg-cream/40 p-4 md:p-6"
       >
         {image ? (
-          <div className="relative md:h-[min(65svh,40rem)] min-h-64 w-full max-w-312">
+          <div className="relative min-h-64 w-full max-w-312 md:h-[min(65svh,40rem)]">
             <Image
               src={image}
               alt={title}

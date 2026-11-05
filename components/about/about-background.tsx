@@ -13,7 +13,7 @@ export function AboutBackground() {
         aria-labelledby="about-background-title"
         className="border-y border-rule bg-cream/40"
       >
-        <div className="mx-auto max-w-360 px-6 py-12 md:px-12 lg:py-16">
+        <div className="px-6 py-12 md:px-12 lg:py-16">
           <h2 id="about-background-title" className="mb-10 text-2xl font-bold">
             Education & recognition
           </h2>
@@ -70,7 +70,7 @@ export function AboutBackground() {
       </section>
       <section
         aria-labelledby="about-career-title"
-        className="mx-auto max-w-360 px-6 py-12 md:px-12 lg:py-16"
+        className="px-6 py-12 md:px-12 lg:py-16"
       >
         <div className="mb-8">
           <h2 id="about-career-title" className="text-2xl font-bold">
@@ -80,7 +80,7 @@ export function AboutBackground() {
         <AboutTimeline />
       </section>
       <div className="border-t border-rule">
-        <div className="mx-auto flex max-w-360 flex-wrap items-center justify-between gap-6 px-6 py-10 md:px-12">
+        <div className="flex flex-wrap items-center justify-between gap-6 px-6 py-10 md:px-12">
           <p className="font-fraunces text-xl">
             Let’s create impactful technology together.
           </p>

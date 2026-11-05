@@ -32,7 +32,7 @@ export function ShopProductPage({ slug }: ShopProductPageProps) {
 function ShopProductHero({ product }: { product: ShopProduct }) {
   return (
     <section className="border-b-[3px] border-double border-ink">
-      <div className="grid min-h-[calc(100svh-3.5625rem)] md:grid-cols-[1.08fr_0.92fr]">
+      <div className="grid min-h-[calc(100svh-3.5625rem)] px-6 md:grid-cols-[1.08fr_0.92fr] md:px-12">
         <FadeIn direction="right" className="min-h-full">
           <div className="relative aspect-square min-h-full border-b border-rule bg-cream md:border-r md:border-b-0">
             <Image
@@ -46,7 +46,7 @@ function ShopProductHero({ product }: { product: ShopProduct }) {
           </div>
         </FadeIn>
 
-        <div className="flex min-h-full flex-col justify-between px-6 py-8 md:px-12 md:py-12">
+        <div className="flex min-h-full flex-col justify-between py-8 md:py-12 md:pl-12">
           <FadeIn delay={0.08} direction="none">
             <Link
               href="/shop"

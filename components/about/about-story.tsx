@@ -5,10 +5,10 @@ export function AboutStory() {
   return (
     <section
       aria-labelledby="about-story-title"
-      className="mx-auto grid max-w-360 gap-8 px-6 py-12 md:px-12 lg:grid-cols-[0.7fr_1.3fr] lg:gap-20 lg:py-16"
+      className="grid gap-8 px-6 py-12 md:px-12 lg:grid-cols-[0.7fr_1.3fr] lg:gap-20 lg:py-16"
     >
       <div className="lg:sticky lg:top-24 lg:self-start">
-        <h2 id="about-story-title" className="text-2xl font-bold">
+        <h2 id="about-story-title" className="scroll-mt-24 text-2xl font-bold">
           People, systems,
           <br />
           and materials.
