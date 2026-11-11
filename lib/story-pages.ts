@@ -99,23 +99,23 @@ export const registeredDesign = [
   ["Classification", "Gloves / Watches and wrist watches"],
 ] as const;
 
-export const colabContent = {
-  title: "COLAB",
+export const collabContent = {
+  title: "COLLAB",
   eyebrow: "Creative Partnerships",
   hero: "A space where art, design, fashion, and technology intersect.",
   intro:
-    "COLAB is an evolving ecosystem of creative partnerships where ideas are not confined by discipline but expanded through collaboration.",
+    "Collab is an evolving ecosystem of creative partnerships where ideas are not confined by discipline but expanded through collaboration.",
   manifesto: [
     "It brings together artists, designers, technologists, and visionaries to explore new forms of expression, innovation, and cultural storytelling.",
-    "At its core, COLAB is about synergy: blending perspectives, pushing boundaries, and turning concepts into tangible, impactful work.",
+    "At its core, Collab is about synergy: blending perspectives, pushing boundaries, and turning concepts into tangible, impactful work.",
   ],
   featured: {
     name: "Ken Nwadiogbu",
     role: "Artist & Creative Partner",
     body: [
-      "A long-time friend and trusted creative partner, Ken Nwadiogbu represents the foundation of COLAB's journey.",
+      "A long-time friend and trusted creative partner, Ken Nwadiogbu represents the foundation of COLLAB's journey.",
       "Known for his hyper-realistic art and thought-provoking storytelling, Ken brings a powerful visual language that complements Keniye's vision for innovation and cross-disciplinary creation.",
-      "This partnership is not just collaborative. It is foundational, setting the tone for how COLAB operates: intentional, experimental, and culturally rooted.",
+      "This partnership is not just collaborative. It is foundational, setting the tone for how COLLAB operates: intentional, experimental, and culturally rooted.",
     ],
   },
   areas: [
@@ -150,7 +150,7 @@ export const colabContent = {
     },
   ],
   closing:
-    "COLAB remains open to future collaborations shaped by creativity, partnership, culture, and shared vision.",
+    "COLLAB remains open to future collaborations shaped by creativity, partnership, culture, and shared vision.",
 };
 
 export const tekContent = {

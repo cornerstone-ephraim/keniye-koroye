@@ -20,7 +20,7 @@ const groups = [
     title: "More from Keniyē",
     links: [
       { href: "/patents", label: "Patents" },
-      { href: "/colab", label: "Colab" },
+      { href: "/collab", label: "Collab" },
       { href: "/tek", label: "TEK" },
       { href: "/global-talent-visa", label: "Global Talent Visa" },
     ],

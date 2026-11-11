@@ -3,17 +3,17 @@ import Link from "next/link";
 import { ArrowDown, ArrowUpRight } from "lucide-react";
 
 import { buttonVariants } from "@/components/ui/button";
-import { colabContent } from "@/lib/story-pages";
+import { collabContent } from "@/lib/story-pages";
 import { cn } from "@/lib/utils";
 
-export default function ColabPage() {
+export default function CollabPage() {
   return (
     <div className="bg-paper pt-14.25 text-ink">
       <header className="bg-ink text-paper">
         <div className="grid px-6 md:px-12 lg:grid-cols-[1fr_1.1fr] lg:gap-12">
           <div className="flex flex-col justify-center py-12 md:py-16">
             <h1 className="font-playfair text-6xl leading-none tracking-tight sm:text-7xl xl:text-8xl">
-              Colab.
+              Collab.
             </h1>
             <p className="mt-7 max-w-sm text-xl leading-relaxed">
               An ongoing practice in making things with artists and designers
@@ -28,7 +28,7 @@ export default function ColabPage() {
             </a>
           </div>
           <Image
-            src="/images/keniye-colab.jpg"
+            src="/images/keniye-collab.jpg"
             alt="Three people in an art studio surrounded by canvases"
             width={828}
             height={828}
@@ -52,12 +52,12 @@ export default function ColabPage() {
             id="partner-title"
             className="font-playfair text-5xl leading-tight tracking-tight sm:text-6xl"
           >
-            {colabContent.featured.name}
+            {collabContent.featured.name}
           </h2>
         </div>
         <div className="max-w-xl space-y-5 text-lg leading-relaxed text-muted">
           <p>
-            Colab began with a friendship. Ken Nwadiogbu, a longtime friend and
+            Collab began with a friendship. Ken Nwadiogbu, a longtime friend and
             creative partner of Keniye, helped shape the practice from the
             start.
           </p>
@@ -82,7 +82,7 @@ export default function ColabPage() {
             Explore Ken’s work
           </h2>
           <ul className="mt-8 divide-y divide-rule border-y border-rule">
-            {colabContent.links.map((item) => (
+            {collabContent.links.map((item) => (
               <li key={item.href}>
                 <a
                   href={item.href}
