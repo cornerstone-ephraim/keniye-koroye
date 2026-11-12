@@ -9,19 +9,19 @@ import { cn } from "@/lib/utils";
 export default function CollabPage() {
   return (
     <div className="bg-paper pt-14.25 text-ink">
-      <header className="bg-ink text-paper">
-        <div className="grid px-6 md:px-12 lg:grid-cols-[1fr_1.1fr] lg:gap-12">
-          <div className="flex flex-col justify-center py-12 md:py-16">
-            <h1 className="font-playfair text-6xl leading-none tracking-tight sm:text-7xl xl:text-8xl">
-              Collab.
+      <header className="border-b border-rule">
+        <div className="grid items-center gap-10 inner-page-opening lg:grid-cols-[1fr_1.1fr] lg:gap-12">
+          <div className="flex flex-col justify-center">
+            <h1 className="inner-page-title">
+              Collab<span className="text-accent">.</span>
             </h1>
-            <p className="mt-7 max-w-sm text-xl leading-relaxed">
+            <p className="mt-6 max-w-md text-lg leading-relaxed text-muted">
               An ongoing practice in making things with artists and designers
               across art, fashion, and technology.
             </p>
             <a
               href="#creative-partnership"
-              className="mt-8 inline-flex min-h-11 w-fit items-center gap-3 border-b border-paper/50 text-sm focus-visible:outline-2 focus-visible:outline-offset-4"
+              className="mt-8 inline-flex min-h-11 w-fit items-center gap-3 border-b border-rule text-sm focus-visible:outline-2 focus-visible:outline-offset-4"
             >
               Meet the creative partner
               <ArrowDown aria-hidden="true" className="size-4" />
@@ -34,7 +34,7 @@ export default function CollabPage() {
             height={828}
             priority
             sizes="(min-width: 1280px) 670px, (min-width: 1024px) 53vw, 100vw"
-            className="aspect-square h-full w-full object-cover"
+            className="aspect-4/3 w-full object-cover object-top"
           />
         </div>
       </header>

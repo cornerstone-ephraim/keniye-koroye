@@ -39,7 +39,7 @@ export function GlobalTalentVisaGuidanceSections() {
               key={section.title}
               className="border-t border-rule pt-7"
             >
-              <h3 className="font-playfair text-2xl md:text-3xl">
+              <h3 className="font-playfair text-2xl md:text-3xl text-accent">
                 {section.title}
               </h3>
               <div className={cn(gtvBody, "mt-4 space-y-4")}>

@@ -1,20 +1,14 @@
 import { personal } from "@/lib/data";
-import PageHero from "../ui/PageHero";
 
 export function ContactHeader() {
   return (
-    <PageHero
-      title={
-        <>
-          Let&apos;s Build
-          <br />
-          Something <em className="text-accent">Real</em>
-        </>
-      }
-    >
-      <p className="font-fraunces text-[1.05rem] leading-[1.75] text-muted italic">
+    <header className="border-b border-rule inner-page-opening">
+      <h1 className="inner-page-title">
+        Let&apos;s build something <em className="text-accent">real.</em>
+      </h1>
+      <p className="mt-5 max-w-xl text-lg leading-relaxed text-muted">
         {personal.tagline}
       </p>
-    </PageHero>
+    </header>
   );
 }

@@ -5,7 +5,6 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { motion, useReducedMotion } from "motion/react";
 import { buttonVariants } from "@/components/ui/button";
-import { bio } from "@/lib/profile";
 import { useSplashReady } from "@/components/ui/LoadingScreen";
 import { cn } from "@/lib/utils";
 import styles from "./home-portrait-hero.module.css";
@@ -40,7 +39,7 @@ export function HomePortraitHero() {
           alt="Funfere Keniye Koroye smiling while seated on a stool"
           width={1024}
           height={1024}
-          sizes="(min-width: 1532px) 980px, (min-width: 1024px) 64vw, (min-width: 664px) 600px, (min-width: 640px) calc(100vw - 64px), 100vw"
+          sizes="(min-width: 1024px) and (max-width: 1366px) and (orientation: portrait) 92vw, (min-width: 1462px) 760px, (min-width: 1024px) 52vw, (min-width: 824px) 760px, (min-width: 640px) calc(100vw - 64px), 125vw"
           priority
           className={styles.cutout}
         />
@@ -51,34 +50,29 @@ export function HomePortraitHero() {
           Funfere Keniyē Koroye
         </p>
         <p className="max-w-80 font-sans text-lg leading-relaxed font-medium">
-          {bio.intro}
+          I’m a product manager and design engineer working across industrial,
+          service, and UX design.
         </p>
         <Link
           href="/work"
           className={cn(
-            buttonVariants({ variant: "link" }),
-            "mt-6 h-auto justify-start gap-3 px-0 py-3 tracking-normal no-underline hover:text-accent",
+            buttonVariants({ size: "lg" }),
+            "mt-6 gap-3 tracking-normal no-underline",
           )}
         >
           Explore my work <ArrowUpRight aria-hidden="true" />
         </Link>
-      </motion.div>
-
-      <motion.div className={styles.about} {...entrance(3)}>
-        <p className="text-right font-sans text-base leading-relaxed">
-          {bio.paragraphs[0]}
-        </p>
         <Link
           href="/about"
           className={cn(
             buttonVariants({ variant: "link" }),
-            "mt-6 ml-auto flex h-auto w-fit justify-end gap-3 px-0 py-3 tracking-normal no-underline hover:text-accent",
+            "flex h-auto w-fit justify-start gap-3 px-0 py-3 tracking-normal text-muted no-underline hover:text-accent",
           )}
         >
-          More About Me <ArrowUpRight aria-hidden="true" />
+          More about me <ArrowUpRight aria-hidden="true" />
         </Link>
       </motion.div>
-      <motion.div className={styles.brands} {...entrance(4)}>
+      <motion.div className={styles.brands} {...entrance(3)}>
         <HomeBrandStrip />
       </motion.div>
     </section>

@@ -106,16 +106,10 @@ function Film({
 export default function PatentsPage() {
   return (
     <article className="bg-paper pt-14.25 text-ink">
-      <header className="px-6 pt-12 pb-14 md:px-12 md:pt-20 lg:pb-20">
-        {/* <div className="mb-8 flex flex-wrap items-center justify-between gap-3 border-b border-rule pb-5">
-          <p className={label}>Patents</p>
-          <p className="font-mono text-xs text-muted">
-            TekGlove · Wearable technology
-          </p>
-        </div> */}
+      <header className="inner-page-opening">
         <div className="grid items-center gap-10 md:grid-cols-2 lg:gap-16">
           <div>
-            <h1 className="font-playfair text-6xl leading-none tracking-tight sm:text-7xl lg:text-8xl">
+            <h1 className="inner-page-title">
               TekGlove<span className="text-accent">.</span>
             </h1>
             <p className={cn(body, "mt-8 max-w-md")}>{patentsContent.intro}</p>

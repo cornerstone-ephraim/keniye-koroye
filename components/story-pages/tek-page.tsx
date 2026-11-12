@@ -7,10 +7,10 @@ import { tekContent } from "@/lib/story-pages";
 export default function TekPage() {
   return (
     <div className="bg-paper pt-14.25 text-ink">
-      <header className="border-b border-rule bg-cream">
-        <div className="grid items-end gap-10 px-6 pt-12 pb-10 md:px-12 lg:grid-cols-[1fr_1.2fr] lg:pt-20 lg:pb-14">
+      <header className="border-b border-rule">
+        <div className="grid items-center gap-10 inner-page-opening lg:grid-cols-[1fr_1.2fr]">
           <div>
-            <h1 className="max-w-xl font-playfair text-5xl leading-[1.06] tracking-tight sm:text-6xl xl:text-7xl">
+            <h1 className="max-w-xl inner-page-title">
               The Taukeme Edwin Koroye <em className="text-accent">Grant</em>
             </h1>
             <p className="mt-6 max-w-md text-lg leading-relaxed text-muted">
