@@ -5,7 +5,7 @@ import { buttonVariants } from "@/components/ui/button";
 import { projects } from "@/lib/projects";
 import { cn } from "@/lib/utils";
 
-const selectedSlugs = ["bunka-totem", "jaza-battery", "cradle-health"];
+const selectedSlugs = ["bunka-shelf", "kelvar-dome", "cradle-health"];
 
 export function HomeSelectedWork() {
   return (
