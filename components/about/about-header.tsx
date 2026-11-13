@@ -14,23 +14,23 @@ export function AboutHeader() {
           <br className="sm:hidden" />{" "}
           <em className="font-normal text-accent">Koroye.</em>
         </h1>
-        <div className="mt-10 grid items-start gap-10 md:mt-14 lg:grid-cols-[1.25fr_1fr] lg:gap-16">
+        <div className="mt-10 grid items-start gap-10 md:mt-14 lg:grid-cols-[minmax(0,26rem)_minmax(0,1fr)] lg:items-center lg:gap-16">
           <figure>
             <Image
-              src="/images/personal/keniye_sitting_on_bench_smiling.webp"
-              alt="Keniye smiling while seated on a bench in a pale blue blazer"
+              src="/images/personal/keniye_looking_sideways.webp"
+              alt="Keniye wearing a cap and knitted vest, looking to the side"
               width={1440}
               height={1440}
               priority
-              sizes="(min-width: 1280px) 620px, (min-width: 1024px) 55vw, 100vw"
+              sizes="(min-width: 1024px) 416px, (min-width: 768px) calc(100vw - 96px), calc(100vw - 48px)"
               className="aspect-square w-full object-cover"
             />
             <figcaption className="mt-4 font-mono text-xs text-muted">
               Funfere Keniyē Koroye · Designer & product manager
             </figcaption>
           </figure>
-          <div className="lg:pt-3">
-            <p className="font-playfair text-3xl leading-tight sm:text-4xl">
+          <div>
+            <p className="font-playfair text-3xl leading-tight sm:text-4xl xl:text-5xl">
               Working across products,
               <br />
               people and possibilities.
