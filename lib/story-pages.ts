@@ -1,90 +1,92 @@
+// TekGlove descriptions adapted from the local TekGlove product source.
+// Product directions are concepts in development, not deployment claims.
 export const patentsContent = {
   title: "Patents",
-  eyebrow: "Patent-Pending Innovation",
-  hero: "Exploring the intersection of wearable intelligence, AI, robotics, and human interaction.",
+  eyebrow: "TekGlove",
+  hero: "Exploring movement, grip and gesture through a wearable hand-data platform.",
   intro:
-    "The Smart Glove System for KNK Labs is a patent-pending innovation developed by Keniye Koroye, designed to revolutionise how humans interact with technology.",
+    "TekGlove is Keniye Koroye’s exploration of the hand as an interface: a wearable platform connecting movement, grip and gesture with digital experiences.",
   overview: [
-    "Built at the intersection of AI, wearable technology, and robotics, the Smart Glove System transforms natural hand movements into intelligent commands.",
-    "It integrates gesture recognition, biometric sensing, and real-time data processing to create a seamless human-machine interface.",
-    "Whether applied in security, fintech, sports performance, robotics control, or assistive technology, the system empowers users with precision, speed, and intuitive control.",
+    "The hand carries information about how we move, hold objects and interact with our surroundings. TekGlove explores how that information can become useful input.",
+    "The platform brings together a Smart Dorsal Sensor, specialist glove modules and a connected app experience. Different configurations explore different uses, from robotics to everyday activity.",
+    "Kinetik and Kradle show two directions for that shared idea. Their capabilities are in development, with sensing dependent on the module, contact and placement.",
   ],
   features: [
     {
-      title: "Precision Gesture Control",
-      body: "Converts natural hand movements into accurate digital commands for seamless interaction.",
+      title: "Motion, grip and gesture",
+      body: "Kinetik explores motion tracking, grip sensing and gesture input for robotics and human–machine interaction.",
     },
     {
-      title: "Real-Time Biometric Monitoring",
-      body: "Captures physical data such as motion, pressure, and performance metrics instantly.",
+      title: "A shared core",
+      body: "The Smart Dorsal Sensor forms the common core of the TekGlove platform.",
     },
     {
-      title: "AI-Powered Intelligence",
-      body: "Learns user behaviour over time to deliver personalised, adaptive responses.",
+      title: "A modular assembly",
+      body: "The exploded model shows how the glove, mounting layers and display come together around the back of the hand.",
     },
     {
-      title: "Multi-Device Integration",
-      body: "Connects effortlessly with robotics, surveillance systems, mobile apps, and smart devices.",
+      title: "Specialist configurations",
+      body: "Different glove modules extend the shared platform towards particular activities and interactions.",
     },
     {
-      title: "Haptic Feedback System",
-      body: "Provides tactile responses to enhance control, awareness, and user experience.",
+      title: "A connection to machines",
+      body: "The robotics direction is intended for developers, researchers and teams exploring how physical hand movement can inform machine interaction.",
     },
     {
-      title: "Secure Data Processing",
-      body: "Built with advanced security protocols to protect user data and system integrity.",
+      title: "A connected experience",
+      body: "The TEK App is intended to bring activity records and insights into the wider product experience.",
     },
   ],
   applications: [
     {
-      title: "Security & Surveillance",
-      body: "Gesture-based control of drones, CCTV systems, and AI tracking platforms enables rapid, hands-on command in high-risk or real-time environments.",
+      title: "Kinetik · Robotics",
+      body: "Motion, grip and gesture sensing for robotics research, motion capture and human–machine interaction.",
     },
     {
-      title: "Fintech & Secure Transactions",
-      body: "Gesture authentication, biometric identity verification, and behavioural tracking add a physical security layer to digital financial systems.",
+      title: "Kradle · Health, fitness & wellness",
+      body: "A modular concept for activity sensing, training context and everyday wellness, with proposed capabilities still in development.",
     },
     {
-      title: "Robotics & Autonomous Systems",
-      body: "Control of robotic arms, ground bots, and drones bridges human intent with machine execution.",
+      title: "Kursor · Computer interaction",
+      body: "A wearable mouse direction exploring cursor control, gesture commands and digital navigation.",
     },
     {
-      title: "Sports & Human Performance",
-      body: "Motion tracking, grip strength monitoring, reaction analysis, and AI coaching feedback optimise performance and reduce injury risk.",
+      title: "Kovert · Field operations",
+      body: "A hand-worn interface concept for monitoring, telemetry and connected device control.",
     },
     {
-      title: "Healthcare & Assistive Technology",
-      body: "Rehabilitation tracking, gesture-based communication, and mobility support improve independence and quality of life.",
+      title: "Kapture · Recovery",
+      body: "A recovery and rehabilitation direction exploring measurable hand function and connected guidance.",
     },
     {
-      title: "Extended Reality (AR/VR) & Gaming",
-      body: "Immersive gesture control and haptic feedback create a more natural and intuitive digital interface.",
+      title: "Konnect · Workforce",
+      body: "A workplace direction exploring hands-free interaction, work instructions and connected workflows.",
     },
   ],
   vision:
-    "The Smart Glove System represents KNK Labs' commitment to building next-generation wearable intelligence, enabling safer systems, smarter environments, and more connected human experiences.",
+    "Kradle explores how the shared TekGlove platform can support sport, fitness and everyday wellness. The modular concept can be docked on a glove, worn on a strap or carried on a keyring, with capabilities dependent on sensor contact and placement.",
 };
 
 export const patentImages = [
   {
-    src: "/images/patents/knk_dual_angle.png",
-    alt: "Smart Glove System dual angle render",
-    className: "aspect-[4/3]",
-  },
-  {
-    src: "/images/patents/knk_glove_int.png",
-    alt: "Smart Glove System internal component render",
-    className: "aspect-[4/3]",
-  },
-  {
-    src: "/images/patents/echo_glove.png",
-    alt: "Echo Glove gesture render",
+    src: "/images/patents/tekglove/kradle-portrait.png",
+    alt: "TekGlove worn on an open hand with its dorsal display visible",
     className: "aspect-square",
   },
   {
-    src: "/images/patents/knk_tekglove.png",
-    alt: "Tek Glove wearable render",
-    className: "aspect-[4/5]",
+    src: "/images/patents/tekglove/model-breakdown.png",
+    alt: "Exploded TekGlove model showing the glove, mounting layers and display",
+    className: "aspect-square",
+  },
+  {
+    src: "/images/patents/tekglove/kinetik-right-hand.png",
+    alt: "Kinetik glove worn on a closed right hand",
+    className: "aspect-video",
+  },
+  {
+    src: "/images/patents/tekglove/tekglove-kradle.webp",
+    alt: "Kradle configuration on a fingerless glove with a round display",
+    className: "aspect-video",
   },
 ];
 
@@ -97,23 +99,23 @@ export const registeredDesign = [
   ["Classification", "Gloves / Watches and wrist watches"],
 ] as const;
 
-export const colabContent = {
-  title: "COLAB",
+export const collabContent = {
+  title: "COLLAB",
   eyebrow: "Creative Partnerships",
   hero: "A space where art, design, fashion, and technology intersect.",
   intro:
-    "COLAB is an evolving ecosystem of creative partnerships where ideas are not confined by discipline but expanded through collaboration.",
+    "Collab is an evolving ecosystem of creative partnerships where ideas are not confined by discipline but expanded through collaboration.",
   manifesto: [
     "It brings together artists, designers, technologists, and visionaries to explore new forms of expression, innovation, and cultural storytelling.",
-    "At its core, COLAB is about synergy: blending perspectives, pushing boundaries, and turning concepts into tangible, impactful work.",
+    "At its core, Collab is about synergy: blending perspectives, pushing boundaries, and turning concepts into tangible, impactful work.",
   ],
   featured: {
     name: "Ken Nwadiogbu",
     role: "Artist & Creative Partner",
     body: [
-      "A long-time friend and trusted creative partner, Ken Nwadiogbu represents the foundation of COLAB's journey.",
+      "A long-time friend and trusted creative partner, Ken Nwadiogbu represents the foundation of COLLAB's journey.",
       "Known for his hyper-realistic art and thought-provoking storytelling, Ken brings a powerful visual language that complements Keniye's vision for innovation and cross-disciplinary creation.",
-      "This partnership is not just collaborative. It is foundational, setting the tone for how COLAB operates: intentional, experimental, and culturally rooted.",
+      "This partnership is not just collaborative. It is foundational, setting the tone for how COLLAB operates: intentional, experimental, and culturally rooted.",
     ],
   },
   areas: [
@@ -148,7 +150,7 @@ export const colabContent = {
     },
   ],
   closing:
-    "COLAB remains open to future collaborations shaped by creativity, partnership, culture, and shared vision.",
+    "COLLAB remains open to future collaborations shaped by creativity, partnership, culture, and shared vision.",
 };
 
 export const tekContent = {

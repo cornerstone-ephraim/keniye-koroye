@@ -1,77 +1,70 @@
-import FadeIn from "@/components/ui/FadeIn";
 import { visaBenefits } from "@/lib/gtv-details";
-import { GTVSectionLabel } from "./gtv-section-label";
-import { GTVJourneyImage } from "./gtv-journey-image";
+import { cn } from "@/lib/utils";
+import {
+  GTVReveal,
+  gtvBody,
+  gtvContainer,
+  gtvHeading,
+  gtvLabel,
+} from "./gtv-editorial";
 
-export const GlobalTalentVisaJourney = () => {
+export function GlobalTalentVisaJourney() {
   return (
-    <section className="border-b border-rule">
-      <div className="px-6 py-10 md:px-12 md:py-14">
-        <div className="grid grid-cols-1 items-start gap-8 md:grid-cols-[0.95fr_1.05fr] md:gap-16">
-          <FadeIn delay={0.1}>
-            <div>
-              <GTVSectionLabel>My Journey</GTVSectionLabel>
-              <h2
-                className="mb-6 max-w-xl font-playfair leading-tight font-black -tracking-[0.02em]"
-                style={{ fontSize: "clamp(1.7rem, 4vw, 3.25rem)" }}
-              >
-                The application started years before I applied.
-              </h2>
-
-              <div className="space-y-4 text-[0.78rem] leading-[1.85] text-muted md:text-[0.85rem]">
-                <p>
-                  One of the biggest misconceptions about the Global Talent Visa
-                  is that the application begins when you decide to apply.
-                </p>
-                <p>In reality, it begins years earlier.</p>
-
-                <div className="grid gap-2 py-2 sm:grid-cols-2">
-                  {[
-                    "Projects you build",
-                    "People you work with",
-                    "Communities you contribute to",
-                    "Reputation you earn",
-                  ].map((line) => (
-                    <span
-                      key={line}
-                      className="border-l border-rule py-1.5 pl-4 font-mono text-[0.6rem] tracking-[0.12em] text-ink uppercase"
-                    >
-                      {line}
-                    </span>
-                  ))}
-                </div>
-
-                <p>
-                  By the time I submitted my application, the evidence already
-                  existed. The challenge was simply presenting the story
-                  clearly.
-                </p>
-              </div>
-
-              <div className="mt-8 border-t border-rule pt-6">
-                <span className="font-mono text-[0.6rem] tracking-[0.18em] text-accent uppercase">
-                  Benefits Of The Visa
-                </span>
-                <div className="mt-4 grid gap-3 sm:grid-cols-2">
-                  {visaBenefits.map((benefit) => (
-                    <div key={benefit} className="border-l border-rule pl-4">
-                      <span className="text-[0.76rem] leading-[1.65] text-muted md:text-[0.82rem]">
-                        {benefit}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </FadeIn>
-
-          <FadeIn delay={0.2} className="md:h-full">
-            <div className="md:h-full md:max-h-[42rem]">
-              <GTVJourneyImage />
-            </div>
-          </FadeIn>
+    <section
+      id="my-journey"
+      aria-labelledby="journey-title"
+      className="scroll-mt-24 border-b border-rule"
+    >
+      <div className={gtvContainer}>
+        <div className="grid gap-10 lg:grid-cols-[1fr_1.2fr] lg:gap-20">
+          <GTVReveal>
+            <p className={gtvLabel}>My journey</p>
+            <h2 id="journey-title" className={gtvHeading}>
+              The application started years before I applied.
+            </h2>
+          </GTVReveal>
+          <GTVReveal className={cn(gtvBody, "space-y-5")}>
+            <p>
+              Over the past few years, many people have asked me how to qualify
+              for the UK Global Talent Visa. Most people start with documents,
+              application strategies and checklists.
+            </p>
+            <p>
+              In my experience, the foundation begins much earlier: the projects
+              you build, people you work with, communities you contribute to and
+              reputation you earn.
+            </p>
+            <p>
+              By the time I submitted my application, the evidence already
+              existed. The challenge was presenting the story clearly.
+            </p>
+          </GTVReveal>
         </div>
+        <GTVReveal className="mt-14 grid gap-8 border-t border-rule pt-8 md:grid-cols-[1fr_1.2fr] md:gap-20">
+          <h3 className="max-w-sm font-playfair text-2xl">
+            Room to build a career
+            <br />
+            on your own terms.
+          </h3>
+          <div>
+            <ul className="grid gap-5 font-sans text-base leading-7 text-muted sm:grid-cols-2">
+              {visaBenefits.map((benefit) => (
+                <li key={benefit} className="border-l-2 border-rule pl-4">
+                  {benefit}
+                </li>
+              ))}
+            </ul>
+            <a
+              href="https://www.gov.uk/global-talent"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-6 inline-block py-2 font-sans text-sm underline underline-offset-4 hover:text-accent"
+            >
+              Check the current GOV.UK guidance
+            </a>
+          </div>
+        </GTVReveal>
       </div>
     </section>
   );
-};
+}

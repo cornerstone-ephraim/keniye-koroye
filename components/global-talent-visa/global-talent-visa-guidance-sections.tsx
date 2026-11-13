@@ -1,80 +1,66 @@
-"use client";
-
 import { guidanceSections } from "@/lib/gtv-details";
-import { motion } from "motion/react";
-import FadeIn from "../ui/FadeIn";
-import { GTVSectionLabel } from "./gtv-section-label";
+import { cn } from "@/lib/utils";
+import {
+  GTVReveal,
+  gtvBody,
+  gtvContainer,
+  gtvHeading,
+  gtvLabel,
+} from "./gtv-editorial";
 
-export const GlobalTalentVisaGuidanceSections = () => {
+export function GlobalTalentVisaGuidanceSections() {
   return (
-    <section className="border-b border-rule">
-      <div className="px-6 py-10 md:px-12 md:py-14">
-        <div className="grid gap-8 md:grid-cols-[0.9fr_1.1fr] md:items-start md:gap-16">
-          <FadeIn delay={0.05} className="md:sticky md:top-24 md:self-start">
-            <div>
-              <GTVSectionLabel>Key Things To Understand</GTVSectionLabel>
-              <h2
-                className="max-w-xl font-playfair leading-tight font-black -tracking-[0.02em]"
-                style={{ fontSize: "clamp(1.7rem, 4vw, 3.25rem)" }}
-              >
-                Build the profile before you organise the paperwork.
-              </h2>
-              <p className="mt-5 max-w-md text-[0.78rem] leading-[1.85] text-muted md:text-[0.85rem]">
-                These notes are the practical ideas behind the application:
-                positioning, proof, validation, leadership, and long-term
-                visibility.
-              </p>
-            </div>
-          </FadeIn>
-
-          <div className="border-t border-rule">
-            {guidanceSections.map((section, index) => (
-              <motion.article
-                key={section.title}
-                className="grid gap-4 border-b border-rule py-6 md:grid-cols-[minmax(10rem,14rem)_1fr]"
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.25 }}
-                transition={{ duration: 0.5, delay: index * 0.06 }}
-              >
-                <h3 className="text-[0.95rem] leading-snug font-bold md:text-[1rem]">
-                  {section.title}
-                </h3>
-                <div className="space-y-4 text-[0.78rem] leading-[1.85] text-muted md:text-[0.85rem]">
-                  <p>{section.body}</p>
-                  {section.points && (
-                    <div className="flex flex-wrap gap-2">
-                      {section.points.map((point) => (
-                        <span
-                          key={point}
-                          className="border border-rule px-3 py-1.5 font-mono text-[0.56rem] tracking-[0.12em] text-ink uppercase"
-                        >
-                          {point}
-                        </span>
-                      ))}
-                    </div>
-                  )}
-                  {section.closing && <p>{section.closing}</p>}
-                </div>
-              </motion.article>
-            ))}
-
-            <FadeIn delay={0.2}>
-              <div className="mt-10 border-l-[3px] border-accent pl-5">
-                <span className="font-mono text-[0.6rem] tracking-[0.18em] text-accent uppercase">
-                  The One Thing I&apos;d Tell Anyone Applying
-                </span>
-                <p className="mt-5 font-playfair text-[1.1rem] leading-[1.7] text-muted italic">
-                  Don&apos;t chase the visa.
-                </p>
-                <p className="mt-4 text-[0.78rem] leading-[1.85] text-muted md:text-[0.85rem]">
-                  Become the kind of person the visa is looking for.
-                </p>
+    <section
+      id="lessons"
+      aria-labelledby="lessons-title"
+      className="scroll-mt-24 border-b border-rule bg-cream/30"
+    >
+      <div
+        className={cn(
+          gtvContainer,
+          "grid items-start gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20",
+        )}
+      >
+        <div className="lg:sticky lg:top-24">
+          <p className={gtvLabel}>What I learned</p>
+          <h2 id="lessons-title" className={gtvHeading}>
+            Build the profile.
+            <br />
+            <em className="font-normal text-accent">Then tell the story.</em>
+          </h2>
+          <p className={cn(gtvBody, "mt-6 max-w-sm")}>
+            Positioning, proof and recognition give the paperwork something
+            meaningful to say.
+          </p>
+        </div>
+        <div className="space-y-10">
+          {guidanceSections.map((section) => (
+            <GTVReveal
+              key={section.title}
+              className="border-t border-rule pt-7"
+            >
+              <h3 className="font-playfair text-2xl md:text-3xl text-accent">
+                {section.title}
+              </h3>
+              <div className={cn(gtvBody, "mt-4 space-y-4")}>
+                <p>{section.body}</p>
+                {section.points && (
+                  <p className="text-ink">{section.points.join(" · ")}</p>
+                )}
+                {section.closing && <p>{section.closing}</p>}
               </div>
-            </FadeIn>
-          </div>
+            </GTVReveal>
+          ))}
+          <GTVReveal className="border-l-2 border-accent pl-6">
+            <p className="font-playfair text-2xl leading-relaxed">
+              Don’t chase the visa.
+            </p>
+            <p className={cn(gtvBody, "mt-3")}>
+              Become the kind of person the visa is looking for.
+            </p>
+          </GTVReveal>
         </div>
       </div>
     </section>
   );
-};
+}

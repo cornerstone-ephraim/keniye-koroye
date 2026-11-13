@@ -6,12 +6,12 @@ import { ContactResponseTime } from "./contact-response-time";
 
 export function ContactLayout() {
   return (
-    <div className="grid min-h-125 grid-cols-1 md:grid-cols-2">
+    <div className="grid min-h-125 grid-cols-1 px-6 md:grid-cols-2 md:px-12">
       <div className="hidden md:block">
         <Initials />
       </div>
 
-      <div className="max-w-2xl px-6 py-10 md:px-12 md:py-14">
+      <div className="max-w-2xl py-10 md:py-14 md:pl-12">
         <ContactDetails />
         <ContactResponseTime />
       </div>

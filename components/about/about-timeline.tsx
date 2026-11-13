@@ -1,54 +1,72 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "motion/react";
-import FadeIn from "@/components/ui/FadeIn";
+import { Button } from "@/components/ui/button";
 import { timeline } from "@/lib/data";
 import { LuMinus, LuPlus } from "react-icons/lu";
+import Image from "next/image";
+import { motion, useReducedMotion } from "motion/react";
+import styles from "./about-timeline.module.css";
 
-const STEP = 3;
+const STEP = 6;
+const logos: Record<string, string> = {
+  "Tecno Mobile": "/images/brands/tecno.svg",
+  "Jaza Energy": "/images/brands/jaza.svg",
+  "AFA Sports": "/images/brands/afa-sports.svg",
+};
 
 export function AboutTimeline() {
   const [visibleCount, setVisibleCount] = useState(STEP);
+  const reducedMotion = useReducedMotion();
 
   const visible = timeline.slice(0, visibleCount);
   const hasMore = visibleCount < timeline.length;
   const showLess = visibleCount > STEP;
 
   return (
-    <FadeIn delay={0.55}>
-      <div className="mt-8">
-        <h3 className="mb-6 font-mono text-[0.62rem] tracking-[0.2em] text-accent uppercase">
-          Career Timeline
-        </h3>
-
-        <div className="space-y-5">
-          {visible.map((t, i) => (
-            <motion.div
+    <div>
+      <div>
+        <ol id="career-scrapbook" className={styles.collection}>
+          {visible.map((t) => (
+            <motion.li
               key={t.year + t.role}
-              className="grid gap-x-4"
-              style={{ gridTemplateColumns: "55px 1px 1fr" }}
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: i * 0.1 }}
+              className={styles.entry}
+              initial={reducedMotion ? false : { opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{
+                once: true,
+                amount: 0.35,
+                margin: "0px 0px -48px 0px",
+              }}
+              transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
             >
-              <span className="pt-0.5 font-playfair text-[0.8rem] font-bold text-muted">
-                {t.year}
-              </span>
-              <div className="relative bg-rule">
-                <span className="absolute top-2 left-1/2 h-2 w-2 -translate-x-11/20 rounded-full bg-accent md:-translate-x-9/20" />
-              </div>
-              <div>
-                <div className="font-playfair text-[0.85rem] font-bold">
+              <article
+                className={styles.note}
+                tabIndex={0}
+                aria-label={`${t.year}: ${t.role}, ${t.company}`}
+              >
+                <div className="mb-4 flex min-h-6 items-center justify-between gap-4">
+                  <span className="font-mono text-sm text-accent">
+                    {t.year}
+                  </span>
+                  {logos[t.company] && (
+                    <Image
+                      src={logos[t.company]}
+                      alt=""
+                      width={100}
+                      height={32}
+                      className="h-6 w-24 object-contain opacity-60 brightness-0 grayscale"
+                    />
+                  )}
+                </div>
+                <h3 className="font-playfair text-lg leading-snug font-bold">
                   {t.role}
-                </div>
-                <div className="mt-1 font-mono text-[0.6rem] tracking-widest text-muted uppercase">
-                  {t.company}
-                </div>
-              </div>
-            </motion.div>
+                </h3>
+                <p className="mt-2 font-sans text-sm text-muted">{t.company}</p>
+              </article>
+            </motion.li>
           ))}
-        </div>
+        </ol>
 
         <div className="mt-5 flex gap-3">
           {hasMore && (
@@ -65,7 +83,7 @@ export function AboutTimeline() {
           )}
         </div>
       </div>
-    </FadeIn>
+    </div>
   );
 }
 
@@ -76,10 +94,12 @@ const DisplayButton = ({
   children: React.ReactNode;
   onClick: () => void;
 }) => (
-  <button
+  <Button
+    variant="ghost"
+    aria-controls="career-scrapbook"
     onClick={onClick}
-    className="flex items-center gap-2 font-mono text-[0.6rem] tracking-widest text-accent uppercase transition-opacity hover:opacity-70"
+    className="gap-2 px-0 font-mono text-xs tracking-normal text-accent"
   >
     {children}
-  </button>
+  </Button>
 );

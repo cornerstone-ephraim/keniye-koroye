@@ -56,7 +56,9 @@ export default function WorkPage() {
     <div className="min-h-screen bg-paper pt-14.25">
       <WorkHeader />
       <WorkFilters active={active} changeAction={setActive} />
-      <WorkGrid projects={filtered} />
+      <div className="px-6 md:px-12">
+        <WorkGrid projects={filtered} />
+      </div>
     </div>
   );
 }

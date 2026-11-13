@@ -4,6 +4,9 @@ import { BsArrowRight } from "react-icons/bs";
 import FadeIn from "@/components/ui/FadeIn";
 import { personal } from "@/lib/profile";
 import { shopProducts, type ShopProduct } from "@/lib/shop";
+import { ArrowDown } from "lucide-react";
+import { buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 export function ShopPage() {
   const featuredProduct = shopProducts[0];
@@ -20,53 +23,45 @@ export function ShopPage() {
 
 function ShopHero({ product }: { product: ShopProduct }) {
   return (
-    <section className="grid min-h-[calc(100svh-3.5625rem)] border-b-[3px] border-double border-ink md:grid-cols-[1.16fr_0.84fr]">
-      <div className="relative min-h-[58svh] overflow-hidden border-b border-rule bg-cream md:min-h-0 md:border-r md:border-b-0">
+    <section
+      className="relative isolate flex min-h-120 items-end overflow-hidden bg-ink text-paper"
+      style={{ height: "calc(90svh - 3.5625rem)" }}
+    >
+      <div className="absolute inset-0 -z-10">
         <Image
           src="/images/shop/rive/shop-rive-hero.jpeg"
           alt="Rive sculptural table and stool in an interior space"
           fill
           priority
-          sizes="(min-width: 768px) 58vw, 100vw"
-          className="object-cover object-[54%_64%]"
+          sizes="100vw"
+          className="object-cover object-[54%_70%]"
         />
       </div>
 
-      <div className="flex min-h-full flex-col justify-between px-6 py-8 md:px-10 md:py-10 lg:px-12">
-        <FadeIn delay={0.08} direction="none">
-          <div className="max-w-lg">
-            <p className="mb-5 font-mono text-[0.62rem] tracking-[0.24em] text-accent uppercase">
-              Shop Objects
-            </p>
-            <h1
-              className="font-playfair leading-[0.88] font-black -tracking-[0.03em]"
-              style={{ fontSize: "clamp(3.4rem, 8vw, 7.5rem)" }}
-            >
-              Collectible items by Keniyē.
-            </h1>
-          </div>
-        </FadeIn>
-
-        <FadeIn delay={0.18}>
-          <div className="mt-10 max-w-md space-y-6 md:mt-0">
-            <p className="font-fraunces text-[1.05rem] leading-[1.7] text-muted italic md:text-[1.2rem]">
-              Sculptural objects shaped through material culture, local
-              manufacturing, and Keniye&apos;s instinct for product stories.
-            </p>
-            <a
-              href="#shop-objects"
-              className="inline-flex items-center gap-3 bg-ink px-6 py-3.5 font-mono text-[0.65rem] tracking-[0.2em] text-paper uppercase no-underline transition-colors duration-200 hover:bg-accent"
-            >
-              View Objects
-              <BsArrowRight aria-hidden="true" />
-            </a>
-          </div>
-        </FadeIn>
-
-        <div className="mt-12 grid grid-cols-2 gap-6 border-t border-rule pt-5 font-mono text-[0.6rem] tracking-[0.16em] text-muted uppercase md:mt-0">
-          <span>{product.name}</span>
-          <span className="text-right">{product.category}</span>
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 h-3/5 bg-linear-to-t from-ink/90 via-ink/30 to-transparent"
+      />
+      <div className="flex w-full items-end justify-between gap-6 px-6 pt-20 pb-8 md:px-12 md:pb-12">
+        <div className="max-w-2xl">
+          <p className="mb-4 font-mono text-xs text-paper/80">{product.name}</p>
+          <h1 className="inner-page-title">Collectibles by Keniyē.</h1>
+          <p className="mt-4 max-w-lg font-fraunces text-base leading-relaxed text-paper/90 md:text-lg">
+            Sculptural objects shaped through material culture and local
+            manufacturing.
+          </p>
         </div>
+        <a
+          href="#shop-objects"
+          aria-label="Explore the collection"
+          title="Explore the collection"
+          className={cn(
+            buttonVariants({ variant: "ghost", size: "icon" }),
+            "mb-1 size-12 shrink-0 text-paper hover:bg-paper/15 hover:text-paper md:size-16 [&_svg]:size-8",
+          )}
+        >
+          <ArrowDown aria-hidden="true" />
+        </a>
       </div>
     </section>
   );
@@ -84,10 +79,8 @@ function ShopIntro({ hasStoreUrl }: { hasStoreUrl: boolean }) {
       <FadeIn delay={0.14}>
         <div className="max-w-3xl space-y-4 text-[0.8rem] leading-[1.9] text-muted md:text-[0.9rem]">
           <p>
-            The shop is staying here for now while the external storefront takes
-            shape. These objects can be presented as a compact catalogue first,
-            with direct enquiries replacing checkout until the store link is
-            ready.
+            Explore the stories, photographs, and specifications of each object.
+            Enquire directly about a piece through its product page.
           </p>
           {hasStoreUrl ? (
             <a
@@ -99,11 +92,7 @@ function ShopIntro({ hasStoreUrl }: { hasStoreUrl: boolean }) {
               Visit Store
               <BsArrowRight aria-hidden="true" />
             </a>
-          ) : (
-            <p className="font-mono text-[0.62rem] tracking-[0.16em] text-accent uppercase">
-              Store link coming soon
-            </p>
-          )}
+          ) : null}
         </div>
       </FadeIn>
     </section>
@@ -114,7 +103,7 @@ function ShopCatalogue({ products }: { products: ShopProduct[] }) {
   return (
     <section
       id="shop-objects"
-      className="border-b-[3px] border-double border-ink px-6 py-12 md:px-12 md:py-16"
+      className="scroll-mt-20 border-b border-rule px-6 py-12 md:px-12 md:py-16"
     >
       <div className="grid gap-10 md:grid-cols-[minmax(10rem,16rem)_1fr] md:gap-16">
         <FadeIn delay={0.08} className="md:sticky md:top-24 md:self-start">

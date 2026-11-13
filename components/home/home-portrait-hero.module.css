@@ -1,0 +1,237 @@
+.hero {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  max-width: 1600px;
+  margin-inline: auto;
+  padding-top: 32px;
+  isolation: isolate;
+}
+
+/* .hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background-image:
+    linear-gradient(var(--ink) 1px, transparent 1px),
+    linear-gradient(90deg, var(--ink) 1px, transparent 1px);
+  background-size: 48px 48px;
+  opacity: 0.02;
+  mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+  pointer-events: none;
+} */
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background-image: radial-gradient(circle, var(--ink) 1px, transparent 1.5px);
+  background-size: 24px 24px;
+  opacity: 0.08;
+  pointer-events: none;
+}
+
+.heading {
+  position: relative;
+  z-index: -1;
+  text-align: center;
+  order: 0;
+}
+
+.name {
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--font-playfair-display), serif;
+  font-size: 64px;
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  /* @apply font-playfair font-black tracking-widest text-ink uppercase no-underline; */
+}
+
+.portrait {
+  position: relative;
+  width: min(100%, 760px);
+  aspect-ratio: 1;
+  margin: 0 auto;
+  overflow: hidden;
+  order: 3;
+  mask-image: linear-gradient(to bottom, black 0%, black 58%, transparent 98%);
+}
+
+.cutout {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: bottom;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    scale: 101%;
+  }
+}
+
+/* .portrait::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 2%;
+  width: 86%;
+  aspect-ratio: 1;
+  translate: -50% 0;
+  background-image: radial-gradient(circle, var(--ink) 1.5px, transparent 2px);
+  background-size: 14px 14px;
+  opacity: 0.3;
+  mask-image: radial-gradient(circle closest-side, black 55%, transparent 100%);
+} */
+
+.introduction {
+  order: 1;
+  padding: 24px 24px 20px;
+}
+
+.about {
+  order: 2;
+  padding: 0 24px 32px;
+}
+
+.brands {
+  position: relative;
+  z-index: 1;
+  min-width: 0;
+  order: 4;
+  margin-top: -104px;
+}
+
+@media (min-width: 375px) {
+  .name {
+    font-size: 80px;
+  }
+}
+
+@media (min-width: 640px) {
+  .hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    column-gap: 32px;
+    padding-inline: 32px;
+  }
+
+  .heading,
+  .portrait,
+  .brands {
+    grid-column: 1 / -1;
+  }
+
+  .name {
+    font-size: 128px;
+  }
+
+  .introduction,
+  .about {
+    padding-inline: 0;
+  }
+
+  .introduction p {
+    max-width: 560px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.8fr) minmax(0, 1fr);
+    grid-template-rows: auto 1fr auto;
+    column-gap: 24px;
+    row-gap: 48px;
+    min-height: calc(100svh - 57px);
+    padding: 40px 48px 0;
+  }
+
+  .heading {
+    grid-column: 1 / -1;
+  }
+
+  .name {
+    font-size: 184px;
+  }
+
+  .portrait {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: min(52%, 760px); /* was min(64%, 980px) */
+    height: 100%;
+    max-height: 700px; /* was 850px */
+    aspect-ratio: auto;
+    margin: 0;
+    translate: -50% 0;
+  }
+
+  .portrait::before {
+    width: auto;
+    height: 88%;
+    top: 4%;
+  }
+
+  .introduction {
+    grid-column: 1;
+    grid-row: 2;
+    align-self: start;
+    padding: 0;
+    border: 0;
+  }
+
+  .about {
+    grid-column: 3;
+    grid-row: 2;
+    align-self: start;
+    padding: 0;
+  }
+
+  .brands {
+    grid-column: 1 / -1;
+    grid-row: 3;
+    margin-inline: -48px;
+    margin-top: 0;
+  }
+}
+
+@media (1024px <= width <= 1366px) and (orientation: portrait) {
+  .portrait {
+    left: 54%;
+    width: min(92%, 1120px);
+    max-height: 1120px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .name {
+    font-size: 224px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .name {
+    font-size: 256px;
+  }
+}
+
+@media (max-width: 639px) {
+  .introduction {
+    padding-bottom: 8px;
+  }
+
+  .portrait {
+    aspect-ratio: 1 / 1.25;
+  }
+
+  .cutout {
+    transform: scale(1.25);
+    transform-origin: bottom center;
+  }
+}

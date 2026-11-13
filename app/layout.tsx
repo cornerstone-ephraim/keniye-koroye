@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Navbar from "@/components/layout/navbar/navbar";
 import Cursor from "@/components/ui/Cursor";
 import Footer from "@/components/layout/Footer";
-import LoadingScreen from "@/components/ui/LoadingScreen";
+import SplashScreen from "@/components/ui/LoadingScreen";
 import ScrollToTop from "@/components/ui/ScrollToTop";
 import { RouteScrollReset } from "@/components/layout/route-scroll-reset";
 import {
@@ -122,12 +122,13 @@ export default function RootLayout({
     >
       <body className="overflow-x-hidden">
         <RouteScrollReset />
-        <LoadingScreen />
-        <Cursor />
-        <Navbar />
-        <main>{children}</main>
-        <ScrollToTop />
-        <Footer />
+        <SplashScreen>
+          <Cursor />
+          <Navbar />
+          <main>{children}</main>
+          <ScrollToTop />
+          <Footer />
+        </SplashScreen>
       </body>
     </html>
   );

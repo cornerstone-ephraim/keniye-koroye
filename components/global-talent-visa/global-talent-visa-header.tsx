@@ -1,44 +1,69 @@
-import PageHero from "@/components/ui/PageHero";
+import Image from "next/image";
+import { ArrowUpRight, ArrowDown } from "lucide-react";
+import { personal } from "@/lib/profile";
+import { buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
-export const GlobalTalentVisaHeader = () => {
+export function GlobalTalentVisaHeader() {
   return (
-    <PageHero
-      as="h1"
-      eyebrow="Recipient Guide"
-      innerClassName="md:gap-12 md:items-start"
-      headlineClassName="max-w-4xl"
-      title={
-        <>
-          Global Talent
-          <br />
-          <em className="text-accent">Visa</em>
-        </>
-      }
-    >
-      <div className="max-w-xl space-y-5 text-[0.78rem] leading-[1.9] text-muted md:text-[0.88rem]">
-        <p
-          className="font-fraunces text-[1.1rem] leading-[1.7] italic md:text-[1.3rem]"
-          style={{ color: "var(--muted)" }}
-        >
-          A practical guide from someone who has already gone through the
-          process.
-        </p>
-        <p>
-          Over the past few years, many people have asked me how to qualify for
-          the UK Global Talent Visa. Most people start in the wrong place. They
-          focus on documents, application strategies, and checklists.
-        </p>
-        <p>
-          But the visa is really asking a much simpler question: are you
-          already, or clearly becoming, someone your industry recognises as
-          valuable?
-        </p>
-        <div className="grid gap-3 border-t border-rule pt-5 font-mono text-[0.58rem] tracking-[0.16em] text-accent uppercase sm:grid-cols-3">
-          <span>Positioning</span>
-          <span>Evidence</span>
-          <span>Validation</span>
+    <header className="border-b border-rule">
+      <div className="inner-page-opening">
+        <div className="grid items-center gap-10 md:grid-cols-[1.15fr_0.85fr] md:gap-12">
+          <div>
+            <h1 className="inner-page-title">
+              The work came first.
+              <br />
+              <em className="font-normal text-accent">The visa followed.</em>
+            </h1>
+            <p className="mt-7 max-w-lg font-sans text-lg leading-8 text-muted">
+              My Global Talent Visa journey, and what it taught me about making
+              a professional story clear.
+            </p>
+            <p className="mt-4 max-w-lg font-sans text-base leading-7 text-muted">
+              I’m Keniyē Koroye, a UK Global Talent Visa recipient. These are
+              the lessons, evidence and questions I return to when people ask me
+              about the process.
+            </p>
+            <div className="mt-7 flex flex-wrap items-center gap-4">
+              <a
+                href="#my-journey"
+                className={cn(
+                  buttonVariants({ size: "lg" }),
+                  "gap-3 tracking-normal",
+                )}
+              >
+                Read my journey <ArrowDown aria-hidden="true" />
+              </a>
+              <a
+                href={personal.bookingUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={cn(
+                  buttonVariants({ variant: "link" }),
+                  "gap-2 px-0 tracking-normal no-underline",
+                )}
+              >
+                Book a conversation <ArrowUpRight aria-hidden="true" />
+              </a>
+            </div>
+          </div>
+          <figure className="mx-auto w-full max-w-104">
+            <div className="relative aspect-square overflow-hidden bg-cream">
+              <Image
+                src="/images/keniye-gtv.jpeg"
+                alt="Keniye seated at a restaurant table"
+                fill
+                priority
+                sizes="(min-width: 1024px) 416px, (min-width: 768px) 40vw, 100vw"
+                className="object-cover object-[center_60%]"
+              />
+            </div>
+            <figcaption className="mt-4 font-mono text-xs leading-relaxed text-muted">
+              Funfere Keniyē Koroye · Global Talent Visa recipient
+            </figcaption>
+          </figure>
         </div>
       </div>
-    </PageHero>
+    </header>
   );
-};
+}

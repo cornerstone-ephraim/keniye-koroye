@@ -60,12 +60,12 @@
 }
 
 :root {
-  --ink: oklch(15.82% 0.0041 106.86);
-  --paper: oklch(95.68% 0.0119 79.78);
-  --cream: oklch(92.78% 0.0248 91.62);
+  --ink: oklch(16% 0 0);
+  --paper: oklch(98% 0 0);
+  --cream: oklch(94% 0 0);
   --accent: oklch(55.71% 0.1821 29.59);
-  --muted: oklch(56.08% 0.0195 84.59);
-  --rule: oklch(80.63% 0.0305 87.56);
+  --muted: oklch(48% 0 0);
+  --rule: oklch(85% 0 0);
 
   --background: var(--paper);
   --foreground: var(--ink);
@@ -214,7 +214,7 @@
     linear-gradient(
       90deg,
       transparent 0%,
-      rgba(200, 191, 170, 0.55) 48%,
+      color-mix(in oklch, var(--rule) 55%, transparent) 48%,
       transparent 100%
     ),
     var(--cream);
@@ -254,4 +254,12 @@
   --sidebar-accent-foreground: oklch(0.986 0.002 67.8);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.547 0.021 43.1);
+}
+
+@utility inner-page-title {
+  @apply font-playfair text-5xl leading-[1.06] font-semibold tracking-tight sm:text-6xl xl:text-7xl;
+}
+
+@utility inner-page-opening {
+  @apply px-6 pt-10 pb-12 md:px-12 md:pt-14 md:pb-16;
 }

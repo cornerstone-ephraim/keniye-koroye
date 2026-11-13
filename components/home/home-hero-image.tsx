@@ -21,7 +21,7 @@ export function HomeHeroImage({
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.9, delay: 0.15 }}
       className={`relative mb-6 w-full overflow-hidden bg-ink ${
-        compact ? "aspect-3/4 max-h-144" : "aspect-3/4"
+        compact ? "mx-auto aspect-3/4 max-w-81" : "aspect-3/4"
       }`}
     >
       <div
@@ -34,7 +34,7 @@ export function HomeHeroImage({
         alt="Keniye Koroye"
         src="/keniye-pic.png"
         fill
-        sizes="(min-width: 768px) 40vw, 100vw"
+        sizes="(min-width: 372px) 324px, calc(100vw - 48px)"
         priority={priority}
         onLoad={() => setLoaded(true)}
         className={`object-cover object-top transition-opacity duration-500 ${

@@ -1,168 +1,130 @@
-"use client";
-
 import Image from "next/image";
-import Link from "next/link";
-import { motion } from "motion/react";
-import { BsArrowRight } from "react-icons/bs";
-import FadeIn from "@/components/ui/FadeIn";
-import PageHero from "@/components/ui/PageHero";
+import { ArrowDown, ArrowUpRight } from "lucide-react";
+
+import { buttonVariants } from "@/components/ui/button";
 import { tekContent } from "@/lib/story-pages";
 
 export default function TekPage() {
   return (
-    <div className="min-h-screen bg-paper pt-14.25">
-      <PageHero
-        as="h1"
-        eyebrow={tekContent.eyebrow}
-        title={
-          <>
-            TEK
-            <br />
-            <em className="text-accent">Grant</em>
-          </>
-        }
-      >
-        <p className="max-w-xl font-fraunces text-[0.95rem] leading-[1.8] text-muted italic md:text-[1.05rem]">
-          {tekContent.hero}
-        </p>
-      </PageHero>
-
-      <div
-        className="flex flex-col md:grid"
-        style={{ gridTemplateColumns: "1.2fr 1px 1fr" }}
-      >
-        <main className="px-6 py-10 md:px-12">
-          <FadeIn delay={0.12}>
-            <p
-              className="mb-8 font-fraunces leading-[1.75]"
-              style={{ fontSize: "clamp(1rem, 3vw, 1.2rem)", maxWidth: "52ch" }}
-            >
-              {tekContent.title}
+    <div className="bg-paper pt-14.25 text-ink">
+      <header className="border-b border-rule">
+        <div className="grid items-center gap-10 inner-page-opening lg:grid-cols-[1fr_1.2fr]">
+          <div>
+            <h1 className="max-w-xl inner-page-title">
+              The Taukeme Edwin Koroye <em className="text-accent">Grant</em>
+            </h1>
+            <p className="mt-6 max-w-md text-lg leading-relaxed text-muted">
+              A grant in his memory that helps young people pursue an education
+              and build a career in technology.
             </p>
-          </FadeIn>
-
-          <div className="space-y-4 text-[0.88rem] leading-[1.95] text-muted">
-            <FadeIn delay={0.16}>
-              <p>{tekContent.intro}</p>
-            </FadeIn>
-            <FadeIn delay={0.2}>
-              <p>{tekContent.legacy}</p>
-            </FadeIn>
+            <a
+              href="#tek-initiatives"
+              className="mt-6 inline-flex min-h-11 items-center gap-3 border-b border-rule text-sm font-semibold hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-4"
+            >
+              Explore the initiatives
+              <ArrowDown aria-hidden="true" className="size-4" />
+            </a>
           </div>
 
-          <FadeIn delay={0.24}>
-            <div className="my-8 border-t border-rule pt-8">
-              <blockquote className="font-playfair text-[1rem] leading-[1.8] text-muted italic">
-                "The work continues by turning memory into opportunity."
-              </blockquote>
-            </div>
-          </FadeIn>
+          <figure>
+            <Image
+              src="/images/tek-og.png"
+              alt="Taukeme Edwin Koroye seated in his office"
+              width={1200}
+              height={630}
+              priority
+              sizes="(min-width: 1280px) 625px, (min-width: 1024px) 50vw, 90vw"
+              className="h-auto w-full"
+            />
+            <figcaption className="mt-3 font-mono text-xs leading-relaxed text-muted">
+              Taukeme Edwin Koroye, former Executive Director of Access Bank Plc
+            </figcaption>
+          </figure>
+        </div>
+      </header>
 
-          <div className="mt-10 border-t border-rule pt-8">
-            <SectionLabel>Core Initiatives</SectionLabel>
-            <div className="mt-6 border-t border-rule">
-              {tekContent.initiatives.map((initiative, index) => (
-                <motion.article
-                  key={initiative.title}
-                  className="border-b border-rule py-5"
-                  initial={{ opacity: 0, y: 14 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.25 }}
-                  transition={{ duration: 0.45, delay: index * 0.04 }}
-                >
-                  <h2 className="text-[0.95rem] leading-snug font-bold md:text-[1rem]">
-                    {initiative.title}
-                  </h2>
-                  <p className="mt-2 max-w-2xl text-[0.85rem] leading-[1.85] text-muted">
-                    {initiative.body}
-                  </p>
-                </motion.article>
-              ))}
-            </div>
-          </div>
+      <section
+        aria-labelledby="tek-legacy"
+        className="grid gap-5 px-6 py-14 md:px-12 lg:grid-cols-[1fr_1.2fr] lg:gap-10 lg:py-20"
+      >
+        <h2
+          id="tek-legacy"
+          className="font-playfair text-4xl tracking-tight sm:text-5xl"
+        >
+          In his memory
+        </h2>
+        <p className="max-w-xl text-lg leading-relaxed text-muted">
+          Taukeme Edwin Koroye was a Nigerian financial executive. His family
+          honours his memory through the TEK Grant, helping students and young
+          people access the funding and tools they need to take their next step.
+        </p>
+      </section>
 
-          <div className="mt-10 border-t border-rule pt-8">
-            <SectionLabel>Who This Supports</SectionLabel>
-            <div className="mt-6 border-t border-rule">
-              {tekContent.supports.map((item, index) => (
-                <motion.div
-                  key={item}
-                  className="border-b border-rule py-4"
-                  initial={{ opacity: 0, y: 14 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.25 }}
-                  transition={{ duration: 0.45, delay: index * 0.04 }}
-                >
-                  <p className="text-[0.85rem] leading-snug">{item}</p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-
-          <FadeIn delay={0.1}>
-            <div className="mt-10 border-t border-rule pt-8">
-              <SectionLabel>Closing Note</SectionLabel>
-              <p className="mt-6 max-w-3xl font-playfair text-[1rem] leading-[1.8] text-muted italic md:text-[1.15rem]">
-                {tekContent.closing}
+      <section
+        id="tek-initiatives"
+        aria-labelledby="tek-initiatives-title"
+        className="scroll-mt-20 border-y border-rule bg-cream"
+      >
+        <div className="px-6 py-14 md:px-12 lg:py-20">
+          <h2
+            id="tek-initiatives-title"
+            className="font-playfair text-4xl tracking-tight sm:text-5xl"
+          >
+            What the grant supports
+          </h2>
+          <div className="mt-8 grid gap-px border border-rule bg-rule md:grid-cols-2">
+            <article className="bg-paper p-6 md:p-8">
+              <h3 className="font-playfair text-3xl leading-tight">
+                Laptop giveaways
+              </h3>
+              <p className="mt-4 text-base leading-relaxed text-muted">
+                With justusedtech, the grant aims to give away three refurbished
+                laptops each quarter to aspiring technology professionals.
               </p>
-            </div>
-          </FadeIn>
-        </main>
+            </article>
+            <article className="bg-paper p-6 md:p-8">
+              <h3 className="font-playfair text-3xl leading-tight">
+                TEK Memorial Scholarship Fund
+              </h3>
+              <p className="mt-4 text-base leading-relaxed text-muted">
+                Selected students can receive up to ₦500,000 each to help cover
+                academic costs.
+              </p>
+            </article>
+          </div>
+          <div className="mt-8 flex flex-wrap items-baseline gap-x-8 gap-y-3">
+            <h3 className="text-sm font-semibold">Who it supports</h3>
+            <ul className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted">
+              {tekContent.supports.map((group) => (
+                <li key={group}>{group}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
 
-        <div className="hidden bg-rule md:block" />
-
-        <aside className="bg-cream px-6 py-10 md:px-12">
-          <FadeIn delay={0.15}>
-            <div className="sticky top-20 space-y-8">
-              <figure className="border-t border-rule pt-5">
-                <div className="relative aspect-4/5 overflow-hidden bg-paper">
-                  <Image
-                    src="/images/tek-og.png"
-                    alt="Taukeme Edwin Koroye"
-                    fill
-                    priority
-                    sizes="(min-width: 768px) 36vw, 100vw"
-                    className="object-cover object-center"
-                  />
-                </div>
-                <figcaption className="mt-3 font-mono text-[0.58rem] tracking-[0.16em] text-muted uppercase">
-                  Legacy / Community / Impact
-                </figcaption>
-              </figure>
-
-              <div className="border-t border-rule pt-6">
-                <SectionLabel>How To Participate</SectionLabel>
-                <div className="mt-5 space-y-4 text-[0.85rem] leading-[1.9] text-muted">
-                  {tekContent.participate.map((paragraph) => (
-                    <p key={paragraph}>{paragraph}</p>
-                  ))}
-                </div>
-                <Link
-                  href={tekContent.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-8 inline-flex items-center gap-3 bg-ink px-6 py-3.5 font-mono text-[0.65rem] tracking-[0.2em] text-paper uppercase no-underline transition-colors duration-200 ease-linear hover:bg-accent md:px-7"
-                >
-                  Stay Updated
-                  <span>
-                    <BsArrowRight />
-                  </span>
-                </Link>
-              </div>
-            </div>
-          </FadeIn>
-        </aside>
-      </div>
+      <section
+        aria-labelledby="tek-updates"
+        className="flex flex-col items-start justify-between gap-6 px-6 py-14 md:flex-row md:items-end md:px-12 lg:py-20"
+      >
+        <div>
+          <h2
+            id="tek-updates"
+            className="font-playfair text-4xl tracking-tight sm:text-5xl"
+          >
+            Follow the next opportunity
+          </h2>
+          <p className="mt-4 max-w-xl text-lg leading-relaxed text-muted">
+            The grant announces opportunities throughout the year. Follow its
+            official updates on Instagram for application dates and
+            instructions.
+          </p>
+        </div>
+        <a href={tekContent.link} className={buttonVariants({ size: "lg" })}>
+          Visit the grant site
+          <ArrowUpRight aria-hidden="true" data-icon="inline-end" />
+        </a>
+      </section>
     </div>
-  );
-}
-
-function SectionLabel({ children }: { children: React.ReactNode }) {
-  return (
-    <FadeIn delay={0.08}>
-      <h2 className="font-mono text-[0.62rem] tracking-[0.2em] text-accent uppercase">
-        {children}
-      </h2>
-    </FadeIn>
   );
 }

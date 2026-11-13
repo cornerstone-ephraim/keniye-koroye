@@ -1,13 +1,13 @@
-"use client";
-
 import { AboutHeader } from "./about-header";
-import { AboutLayout } from "./about-layout";
+import { AboutStory } from "./about-story";
+import { AboutBackground } from "./about-background";
 
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-paper pt-14.25">
       <AboutHeader />
-      <AboutLayout />
+      <AboutStory />
+      <AboutBackground />
     </div>
   );
 }
